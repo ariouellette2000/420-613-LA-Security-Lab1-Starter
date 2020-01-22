@@ -26,5 +26,16 @@ namespace SecurityLab1_Starter.Controllers
 
             return View();
         }
+        public ActionResult GenError()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            throw new Exception();
+            //throw new DivisionByZeroException();
+
+            //return new HttpStatusCodeResult(500);
+            return View();
+
+        }
     }
 }
