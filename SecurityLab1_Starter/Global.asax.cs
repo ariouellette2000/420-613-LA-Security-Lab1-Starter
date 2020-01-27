@@ -18,20 +18,16 @@ namespace SecurityLab1_Starter
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            
+                DependencyResolver.SetResolver(new Infrastructure.NinjectDependencyResolver());
+            
         }
 
         //Call everytime there is an exceoption
         //Put a break point an make sure it stops there
         protected void Application_Error()
         {
-            //Model new class , Logger
-            //Log file, date and the log
-            //public void LogToFile(string messP\)
-            //using
-            //server. getlasterror
-            //l.log()exce.mess
-            //Log
-
             Logger l = new Logger();
             Exception exception = Server.GetLastError();
             l.LogToEvent(exception.Message);

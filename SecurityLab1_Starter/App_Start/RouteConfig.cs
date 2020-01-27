@@ -38,7 +38,14 @@ namespace SecurityLab1_Starter
                 defaults: new { controller = "Error", action = "ServerError", id = UrlParameter.Optional }
             );
 
-          
+            routes.MapRoute(
+               name: "Login",
+               url: "Account/{action}",
+               defaults: new { controller = "Account", action = "Login"},
+               constraints: new { action = "Login|Logout" }
+           );
+
+
 
             //Catch all
             routes.MapRoute(

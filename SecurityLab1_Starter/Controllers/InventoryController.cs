@@ -18,11 +18,13 @@ namespace SecurityLab1_Starter.Controllers
             //Redirect or return a view, but not both.
             filterContext.Result = RedirectToAction("Index", "ErrorHandler");
         }
-        // GET: Inventory
+
+        [Authorize (Users ="testuser2")]
         public ActionResult Index()
         {
-            return View();
-        }
+          return View();
+        }      
+       
 
 
 

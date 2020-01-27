@@ -33,8 +33,9 @@ namespace SecurityLab1_Starter.Models
             string log = "Application";
             String now = DateTime.Now.ToString();
 
-            w.Write("\r\nLog Entry : "+message);
-            w.WriteLine($"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}");
+            w.Write($"{DateTime.Now.ToLongTimeString()} , {DateTime.Now.ToLongDateString()}"); 
+            w.WriteLine(message);
+            
             w.Close();
 
         }

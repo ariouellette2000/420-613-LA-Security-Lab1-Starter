@@ -19,20 +19,27 @@
                 <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-item nav-link" })</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-item nav-link" })</li>
                 <li>@Html.ActionLink("Inventory Pricing", "Index", "Inventory", null, new { @class = "nav-item nav-link" })</li>
+                @if (!Request.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Login", "Login", "Account", new { returnUrl = Url.Action("Index","Home")}, new { @class = "nav-item nav-link" })</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink(System.Web.HttpContext.Current.User.Identity.Name, "Logout", "Account", null, new { @class = "nav-item nav-link" })</li>
+                }
             </ul>
         </div>
     </nav>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2020 Champlain College St. Lambert</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2020 Champlain College St. Lambert</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
